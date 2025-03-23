@@ -13,6 +13,12 @@
         android:theme="@style/Theme.KULUBS"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.SearchResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
