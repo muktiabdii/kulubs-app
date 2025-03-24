@@ -149,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_food"
+                    android:src="@drawable/sample_warung"
                     android:contentDescription="Gambar Warung"/>
 
                 <LinearLayout
@@ -189,31 +189,31 @@
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/ic_star"
-                                android:tint="@color/orange"/>
+                                android:tint="#FF5F00"/>
 
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/ic_star"
-                                android:tint="@color/orange"/>
+                                android:tint="#FF5F00"/>
 
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/ic_star"
-                                android:tint="@color/orange"/>
+                                android:tint="#FF5F00"/>
 
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/ic_star"
-                                android:tint="@color/orange"/>
+                                android:tint="#FF5F00"/>
 
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/ic_star"
-                                android:tint="@color/orange"/>
+                                android:tint="#FF5F00"/>
 
                             <!-- Rating angka -->
                             <TextView
@@ -299,6 +299,5 @@
 
 
 
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
