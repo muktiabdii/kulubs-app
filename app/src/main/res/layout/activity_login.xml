@@ -33,7 +33,9 @@
             android:inputType="textEmailAddress"
             android:paddingStart="20dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="13sp"
+            android:fontFamily="@font/raleway_light"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -44,7 +46,9 @@
             android:paddingStart="20dp"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/black"
+            android:textSize="13sp"
+            android:fontFamily="@font/raleway_light"/>
 
         <Button
             android:layout_width="match_parent"
@@ -53,21 +57,26 @@
             android:text="@string/login"
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:backgroundTint="#FF9732"/>
+            android:backgroundTint="#FF9732"
+            android:fontFamily="@font/raleway_light"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/forgot_password"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:fontFamily="@font/raleway_light"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/sign_up"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:fontFamily="@font/raleway_light"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,7 +87,7 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="0.8dp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:layout_marginEnd="10dp" />
@@ -86,22 +95,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OR" />
+                android:text="OR"
+                android:fontFamily="@font/raleway_light"/>
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="0.8dp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:layout_marginStart="10dp" />
         </LinearLayout>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_google"/>
 
     </LinearLayout>
 
