@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Outer Circle (Outlined) -->
+    <path
+        android:pathData="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,3C16.97,3 21,7.03 21,12C21,16.97 16.97,21 12,21C7.03,21 3,16.97 3,12C3,7.03 7.03,3 12,3Z"
+        android:strokeColor="#FFFF"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+
+    <!-- Filter Funnel (Reversed: Shortest Line at Bottom) -->
+    <path
+        android:pathData="M6,7H18C18.55,7 19,7.45 19,8C19,8.55 18.55,9 18,9H6C5.45,9 5,8.55 5,8C5,7.45 5.45,7 6,7ZM8,11H16C16.55,11 17,11.45 17,12C17,12.55 16.55,13 16,13H8C7.45,13 7,12.55 7,12C7,11.45 7.45,11 8,11ZM10,15H14C14.55,15 15,15.45 15,16C15,16.55 14.55,17 14,17H10C9.45,17 9,16.55 9,16C9,15.45 9.45,15 10,15Z"
+        android:fillColor="#FFFF" />
+</vector>

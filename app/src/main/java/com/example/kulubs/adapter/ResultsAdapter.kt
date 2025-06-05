@@ -1,58 +1,60 @@
 package com.example.kulubs.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kulubs.R
-import com.example.kulubs.databinding.ItemResultBinding
-import com.example.kulubs.model.Warung
+import com.example.kulubs.model.WarungResult
+import com.google.android.material.button.MaterialButton
 
-class WarungAdapter(
-    private var warungList: List<Warung>,
-    private val onItemClick: (Warung) -> Unit
-) : RecyclerView.Adapter<WarungAdapter.WarungViewHolder>() {
+class ResultsAdapter(
+    private val resultsList: List<WarungResult>,
+    private val onWhatsappClick: (WarungResult) -> Unit,
+    private val onReviewClick: (WarungResult) -> Unit
+) : RecyclerView.Adapter<ResultsAdapter.ResultViewHolder>() {
 
-    inner class WarungViewHolder(val binding: ItemResultBinding) :
-        RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WarungViewHolder {
-        val binding = ItemResultBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-        return WarungViewHolder(binding)
+    inner class ResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imgWarung: ImageView = itemView.findViewById(R.id.img_warung)
+        val tvWarungName: TextView = itemView.findViewById(R.id.tv_warung_name)
+        val tvRating: TextView = itemView.findViewById(R.id.tv_rating)
+        val tvLikes: TextView = itemView.findViewById(R.id.tv_likes)
+        val tvLocation: TextView = itemView.findViewById(R.id.tv_location)
+        val tvCategories: TextView = itemView.findViewById(R.id.tv_categories)
+        val btnWhatsapp: MaterialButton = itemView.findViewById(R.id.btn_whatsapp)
+        val btnReview: MaterialButton = itemView.findViewById(R.id.btn_review)
     }
 
-    override fun onBindViewHolder(holder: WarungViewHolder, position: Int) {
-        val warung = warungList[position]
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_result, parent, false)
+        return ResultViewHolder(view)
+    }
 
-        with(holder.binding) {
-            imgWarung.setImageResource(warung.imageRes)
-            tvWarungName.text = warung.name
-            tvLocation.text = warung.location
-            tvCategories.text = warung.categories
+    override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
+        val item = resultsList[position]
 
-            // Set rating stars (you'll need to implement this logic)
-            // Set like count
-            tvLikeCount.text = "Disukai ${warung.likes}"
+        // Set data to views
+        holder.tvWarungName.text = item.name
+        holder.tvRating.text = item.rating.toString()
+        holder.tvLikes.text = "Disukai ${item.likes}"
+        holder.tvLocation.text = item.location
+        holder.tvCategories.text = item.categories.joinToString(", ")
 
-            root.setOnClickListener { onItemClick(warung) }
+        // Set image
+        // You may use an image loading library like Glide or Picasso here
+        holder.imgWarung.setImageResource(item.imageResId)
 
-            btnWhatsapp.setOnClickListener {
-                // Handle WhatsApp button click
-            }
+        // Set button click listeners
+        holder.btnWhatsapp.setOnClickListener {
+            onWhatsappClick(item)
+        }
 
-            btnReview.setOnClickListener {
-                // Handle review button click
-            }
+        holder.btnReview.setOnClickListener {
+            onReviewClick(item)
         }
     }
 
-    override fun getItemCount(): Int = warungList.size
-
-    fun updateList(newList: List<Warung>) {
-        warungList = newList
-        notifyDataSetChanged()
-    }
+    override fun getItemCount(): Int = resultsList.size
 }
