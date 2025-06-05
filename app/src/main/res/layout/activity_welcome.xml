@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_2">
+
+    <View
+        android:id="@+id/background_layer_back"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/bg_layer_back" />
+
+    <View
+        android:id="@+id/background_layer_front"
+        android:layout_width="200dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="260dp"
+        android:layout_marginBottom="260dp"
+        android:background="@drawable/bg_layer_front" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Welcome to"
+            android:textColor="#EAA23F"
+            android:textSize="40sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/raleway_medium" />
+
+        <TextView
+            android:id="@+id/tv_kulubs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kulubs,"
+            android:textColor="#EAA23F"
+            android:textSize="40sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/raleway_medium" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_illustration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:paddingStart="100dp"
+        android:layout_marginBottom="200dp"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="Kulubs illustration"
+        android:src="@drawable/kulubs_landing"
+        android:scaleType="fitCenter" />
+
+    <LinearLayout
+        android:id="@+id/btn_get_started"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/btn_get_started_bg"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="8dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/btn_get_started"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="40dp"
+            android:contentDescription="Get started icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway_bold"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

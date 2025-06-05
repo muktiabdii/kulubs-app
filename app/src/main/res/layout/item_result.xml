@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:backgroundTint="#FDF8ED"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Image with Overlay (Full Height) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <ImageView
+                android:id="@+id/img_warung"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Gambar Warung"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_warung" />
+
+            <!-- Gradient Overlay -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/image_overlay" />
+
+            <!-- Rating Badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:background="@drawable/rating_badge_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_star"
+                    app:tint="#FFD700" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="4.9"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Content Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Header Info with Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <!-- Warung Info and Like Badge -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_warung_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Lalapan Mbak L"
+                        android:textColor="#1A1A1A"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="Kantin FILKOM • Belakang GKM"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <!-- Like Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/like_badge_bg"
+                        android:layout_marginTop="5dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="3dp"
+                            android:src="@drawable/ic_favorite"
+                            app:tint="#EC4B47" />
+
+                        <TextView
+                            android:id="@+id/tv_likes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:paddingBottom="2dp"
+                            android:fontFamily="@font/raleway_bold"
+                            android:text="Disukai 200"
+                            android:textColor="#EC4B47"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:id="@+id/layout_buttons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_whatsapp"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="4dp"
+                        android:backgroundTint="#F8F9FA"
+                        android:drawablePadding="6dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:paddingHorizontal="12dp"
+                        android:text="WhatsApp"
+                        android:textColor="#25D366"
+                        android:textSize="14sp"
+                        app:cornerRadius="10dp"
+                        app:iconTint="#25D366"
+                        app:strokeColor="#25D366"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_review"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:backgroundTint="#CC4302"
+                        android:drawablePadding="6dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:paddingHorizontal="12dp"
+                        android:text="Tulis Review"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Category Tags -->
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="28dp"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start">
+
+                <TextView
+                    android:id="@+id/tv_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/category_tag_bg"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="Mie"
+                    android:textColor="#FF5F00"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/category_tag_bg"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="Nusantara"
+                    android:textColor="#FF780A"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/category_tag_bg"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="Nasi"
+                    android:textColor="#EAA23F"
+                    android:textSize="12sp" />
+            </com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,38 +1,31 @@
 package com.example.kulubs
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var bottomNav: BottomNavigationView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        bottomNav = findViewById(R.id.bottom_navigation)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        // Load fragment awal
-        loadFragment(HomeFragment())
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_search -> loadFragment(SearchFragment())
-                R.id.nav_favorites -> loadFragment(FavoritesFragment())
-                R.id.nav_profile -> loadFragment(ProfileFragment())
-            }
-            true
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
-    }
 
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
+        findViewById<Button>(R.id.btnSearch).setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+        }
     }
 }

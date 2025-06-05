@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_filter_chip.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/chipCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/white"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:minHeight="40dp">
+
+            <ImageView
+                android:id="@+id/chipIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_category"
+                app:tint="#FF5F00"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/chipText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua"
+                android:textSize="14sp"
+                android:fontFamily="@font/raleway_medium"
+                android:textColor="#FF5F00"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

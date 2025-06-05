@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradient layer for the bottom (approximating 30%) -->
+    <item android:top="200dp" android:bottom="250dp"> <!-- Adjust this value based on typical screen height -->
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FF9732"
+                android:endColor="#FFFFFF"
+                android:angle="90"
+                android:type="linear" />
+        </shape>
+    </item>
+    <!-- Solid white for the top portion -->
+    <item android:bottom="300dp"> <!-- Adjust to overlap gradient slightly -->
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

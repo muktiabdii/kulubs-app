@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEFEFE">
+
+    <!-- Modern Header with Gradient -->
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/gradient_header"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Header Content -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Temukan Kuliner Terbaik! 🍜"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:lineSpacingExtra="2dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/raleway_regular"
+            android:text="Jelajahi cita rasa autentik di sekitar kampus"
+            android:textColor="#E6FFFFFF"
+            android:textSize="14sp"
+            android:alpha="0.9" />
+
+        <!-- Modern Search Bar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/white">
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="Cari makanan atau warung..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingHorizontal="20dp"
+                android:textColorHint="#80000000"
+                android:textSize="16sp" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <!-- Main Content with ScrollView -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"> <!-- Changed from @+id/view to @+id/linearLayout -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- History Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvRiwayat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Riwayat Pencarian"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="#FF5F00"/>
+
+                <TextView
+                    android:id="@+id/tvHapus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hapus Semua"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textColor="#CC4302"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?android:attr/selectableItemBackground"/>
+            </LinearLayout>
+
+            <!-- History List with Constrained Height -->
+            <ListView
+                android:id="@+id/lvHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:nestedScrollingEnabled="true"
+                android:maxHeight="200dp"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvEmptyHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belum ada riwayat pencarian"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:textColor="#CCFF780A"
+                android:fontFamily="@font/raleway_medium"
+                android:padding="32dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/empty_state_bg"/>
+
+            <!-- Add Warung Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#FFF9F1"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#FFBE6D"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <!-- Icon and Title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/circle_bg_gradient"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏪"
+                                android:textSize="24sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kamu pemilik warung?"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/raleway_bold"
+                                android:textColor="#FF5F00"
+                                android:layout_marginBottom="4dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Daftarkan warungmu dan jangkau lebih banyak pelanggan!"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/raleway_regular"
+                                android:textColor="#666666"
+                                android:lineSpacingExtra="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- CTA Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddWarung"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Tambahkan Warungmu Disini"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:textColor="@color/white"
+                        android:backgroundTint="#FF9732"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_add_business"
+                        app:iconTint="@color/white"
+                        app:iconGravity="textStart"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Visited Section -->
+            <TextView
+                android:id="@+id/tvVisited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Warung Favorit Kamu ⭐"
+                android:textSize="18sp"
+                android:fontFamily="@font/raleway_bold"
+                android:textColor="#FF5F00"/>
+
+            <!-- Modern Card Design -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FDF8ED"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image with Overlay -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp">
+
+                        <ImageView
+                            android:id="@+id/img_warung"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_warung"
+                            android:contentDescription="Gambar Warung"/>
+
+                        <!-- Gradient Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/image_overlay"/>
+
+                        <!-- Rating Badge -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_margin="12dp"
+                            android:background="@drawable/rating_badge_bg"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="6dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_star"
+                                app:tint="#FFD700" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4.9"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/raleway_bold"
+                                android:layout_marginStart="4dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!-- Content Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <!-- Header Info -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lalapan Mbak L"
+                                    android:textSize="20sp"
+                                    android:fontFamily="@font/raleway_bold"
+                                    android:textColor="#1A1A1A"
+                                    android:layout_marginBottom="4dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kantin FILKOM • Belakang GKM"
+                                    android:textSize="14sp"
+                                    android:textColor="#666666"
+                                    android:fontFamily="@font/raleway_regular"/>
+                            </LinearLayout>
+
+                            <!-- Like Badge -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/like_badge_bg"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:src="@drawable/ic_favorite"
+                                    app:tint="#EC4B47" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="200"
+                                    android:textSize="12sp"
+                                    android:textColor="#EC4B47"
+                                    android:fontFamily="@font/raleway_bold"
+                                    android:layout_marginStart="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Category Tags -->
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            app:flexWrap="wrap"
+                            app:justifyContent="flex_start"
+                            android:minHeight="32dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mie"
+                                android:textSize="12sp"
+                                android:textColor="#FF5F00"
+                                android:fontFamily="@font/raleway_medium"
+                                android:background="@drawable/category_tag_bg"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nusantara"
+                                android:textSize="12sp"
+                                android:textColor="#FF780A"
+                                android:fontFamily="@font/raleway_medium"
+                                android:background="@drawable/category_tag_bg"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nasi"
+                                android:textSize="12sp"
+                                android:textColor="#EAA23F"
+                                android:fontFamily="@font/raleway_medium"
+                                android:background="@drawable/category_tag_bg"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:layout_marginBottom="8dp"/>
+                        </com.google.android.flexbox.FlexboxLayout>
+
+                        <!-- Action Buttons -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:minHeight="48dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_whatsapp"
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#F8F9FA"
+                                android:drawablePadding="8dp"
+                                android:fontFamily="@font/raleway_bold"
+                                android:text="WhatsApp"
+                                android:textColor="#25D366"
+                                android:textSize="14sp"
+                                app:cornerRadius="12dp"
+                                app:iconTint="#25D366"
+                                app:strokeColor="#25D366"
+                                app:strokeWidth="1dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_review"
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:text="Tulis Review"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/raleway_bold"
+                                android:drawablePadding="8dp"
+                                android:textColor="@color/white"
+                                android:backgroundTint="#FF5F00"
+                                app:cornerRadius="12dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

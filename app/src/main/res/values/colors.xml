@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="nav_selected">#FFFFFF</color> <!-- White for selected icon -->
+    <color name="nav_unselected">#FFA290</color> <!-- Semi-transparent white (grayish) for unselected -->
 </resources>

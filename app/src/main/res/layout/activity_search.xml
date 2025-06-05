@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    android:layout_height="match_parent">
 
     <View
         android:id="@+id/view"
@@ -292,7 +291,6 @@
                             android:text="Whatsapp"
                             android:textSize="12sp"
                             android:fontFamily="@font/raleway_medium"
-                            android:drawableLeft="@drawable/ic_wa"
                             android:backgroundTint="#F5F5F5"
                             app:cornerRadius="10dp"
                             android:textColor="@color/black"
@@ -308,7 +306,6 @@
                             android:text="Tulis Review"
                             android:textSize="12sp"
                             android:fontFamily="@font/raleway_medium"
-                            android:drawableLeft="@drawable/ic_pencil"
                             android:textColor="@color/white"
                             android:backgroundTint="#CC4302"
                             app:cornerRadius="10dp"
